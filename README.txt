@@ -56,7 +56,7 @@ The --open (or just -o) option automatically opens your browser to http://localh
 
 This project is a SPA so no reload is needed. 
 By filling the main form with the attendance date and the amount of people you wanna bring (attendance number) you can filter all activities available in that date ordered by popilarity 
-Clicking in the "Book in" button you can  
-of any activity by clicking on it's name.
-
-When booking in an activity, it's popularity will increase by the attendance number provided and the list will be.
+Clicking in the "Book in" button you can buy an entrance to that activity, if successful, there will be a success message, if something is invalid, it will display an error message.  
+Clicking on an activity name will show a detail view with extra information.
+When booking in an activity, it's popularity will increase by the attendance number provided and the list will be automatically updated to consider the change in popularity.
+The activities table in the Database is filled with random data by using factories, so every time you run the seed, 5 random activities will be created.
