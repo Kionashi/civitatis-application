@@ -23,7 +23,7 @@ export class ActivityListComponent implements OnInit {
 
      // Create form controls
      this.attendanceDate = new FormControl('', [Validators.required]);
-     this.attendanceNumber = new FormControl('', [Validators.required, Validators.min(1)]);
+     this.attendanceNumber = new FormControl(1, [Validators.required, Validators.min(1)]);
 
      // Create form group
      this.searchForm = new FormGroup({
@@ -58,7 +58,11 @@ export class ActivityListComponent implements OnInit {
   bookActivity(activityId: number): void {
     this.civitatisAPIService.createBooking(activityId, this.attendanceNumber.value, this.attendanceDate.value).subscribe(data => {
       console.log(data);
-      alert('Your activity '+ activityId +' has been booked successfully');
+      alert('Your activity has been booked successfully');
+      this.attendanceDate.setValue('');
+      this.attendanceDate.markAsUntouched();
+      this.attendanceDate.markAsPristine();
+      this.attendanceNumber.setValue(1);
       this.civitatisAPIService.getActivities().subscribe(data => {
         this.activities = data;
       }, error => {

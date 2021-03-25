@@ -7,8 +7,14 @@ use App\Models\Activity;
 
 class ActivityController extends Controller
 {
-    // List Activities with query params to filter the results, if no query params it will list all activities
-    public function index(Request $request){
+    /**
+     * List Activities with query params to filter the results, if no query params it will list all activities.
+     *
+     * @param  \Illuminate\Http\Request $request
+     * @return mixed
+     */
+    public function index(Request $request)
+    {
         
         // If this has activity_date query param it will filter the results by date
         if($request->has('activityDate')){
@@ -21,17 +27,23 @@ class ActivityController extends Controller
         return Activity::orderByDesc('popularity')->get();
     }
 
-    // Show a single activity from given Id 
-    public function show($id){
-        return Activity::where('id',$id)
+    /**
+     * Show a single activity from given Id 
+     *
+     * @param  integer $id
+     * @return mixed
+     */
+    public function show($id)
+    {
+        $activity = Activity::where('id',$id)
             ->with('relatedActivities')
             ->first()
             ;
+        // If cant't find the activity, return 404
+        if (!$activity){
+            return response(['Activity not found'],404);
+        }
+        return $activity;
     }
-
-    public function hello(){
-        return response(['hello'], 200);
-    }
-
 
 }

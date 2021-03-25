@@ -35,9 +35,13 @@ You can get composer here https://getcomposer.org
 
 4.- Create a new database for our project.
 
-5.- Now we copy the file  ".env.example" and rename it as ".env" and change the database information for the one in our local machine 
+5.- Now we copy the file  ".env.example" and rename it as ".env" and change the database information for the one in your local machine 
 
-6.-To serve your project locally, you may use the built-in PHP development server:
+6.- Run the migrations and seeds to populate your DB running the following command
+
+```php artisan migrate --seed```
+
+7.-To serve your project locally, you may use the built-in PHP development server:
 
 ```php -S localhost:8000 -t public```
 
@@ -70,9 +74,12 @@ The --open (or just -o) option automatically opens your browser to http://localh
 
 :::Features:::
 
-1.-This project is a SPA so no reload is needed. 
-2.-By filling the main form with the attendance date and the amount of people you wanna bring (attendance number) you can filter all activities available in that date ordered by popilarity 
+1.-This project is a SPA with Angular. 
+2.-By filling the main form with the attendance date and the amount of people you wanna bring (attendance number) you can filter all activities available in that date ordered by popularity 
 3.-Clicking in the "Book in" button you can buy an entrance to that activity, if successful, there will be a success message, if something is invalid, it will display an error message.  
 4.-Clicking on an activity name will show a detail view with extra information.
 5.-When booking in an activity, it's popularity will increase by the attendance number provided and the list will be automatically updated to consider the change in popularity.
 6.-The activities table in the database is filled with random data by using factories, so every time you run the seed, 5 random activities will be created.
+7.-Activities has a many to many relationship with iself in order to add related activities.
+8.-Backend project contains basic functional testing.
+9.-The API documentation can be seen in the following link https://documenter.getpostman.com/view/2414022/TzCHBqfj#intro 

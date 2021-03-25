@@ -31,7 +31,7 @@
 <div class="activity-container">
   <div class="activity-item" *ngFor="let activity of activities; let i = index">
     <a [routerLink]="['/activities', activity.id]"><h3 class="title">{{ activity.title }}</h3></a>
-    <p>{{ activity.price }}€ per person</p>
+    <p>{{ activity.price * attendanceNumber.value}} € </p>
     <button (click)="bookActivity(activity.id)" mat-raised-button color="primary" [disabled]="searchForm.invalid">Book in</button>
   </div>
 </div>

@@ -9,12 +9,14 @@ use App\Models\Activity;
 class BookingController extends Controller
 {
     // List all bookings
-    public function index(){
+    public function index()
+    {
         return Booking::all();
     }
     
     // Creates a new booking, upgrades the popularity of the activity by the amount of people who booked
-    public function store(Request $request){
+    public function store(Request $request)
+    {
 
         // Check if the id and the date provided are valid in case the request was tampered in the frontend
         $activity = Activity::where('start_date','<=',$request->attendanceDate)

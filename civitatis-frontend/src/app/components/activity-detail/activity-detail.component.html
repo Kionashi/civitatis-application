@@ -1,8 +1,9 @@
 <mat-card>
     <h1>{{ activity.title }}</h1>
     <p>{{ activity.description }}</p>
-    <p>{{ activity.price }} €</p>
-    <p>{{ activity.startDate }} - {{ activity.endDate }}</p>
+    <p>{{ activity.price }} € per person</p>
+    <p>Starting date: {{ activity.startDate }}</p> 
+    <p>Ending date: {{ activity.endDate }}</p>
 
     <a routerLink="/" mat-raised-button color="accent">Back</a>
 </mat-card>
